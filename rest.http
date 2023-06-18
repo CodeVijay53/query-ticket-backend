@@ -1,0 +1,88 @@
+### User String endpoint
+POST http://localhost:3001/v1/user
+Content-Type: application/json
+
+{
+    "name": "Vijay Shankar",
+    "company": "ING",
+    "address":"Sydney",
+    "Phone": 9522115545,
+    "email":  "anna@gmail.com",
+    "password":"secret5114132"
+}
+
+### User Signin endpoint
+POST http://localhost:3001/v1/user/login
+Content-Type: application/json
+
+{
+    "email":  "anna@gmail.com",
+    "password":"secret5114132"
+}
+
+### Get a user endpoint
+GET  http://localhost:3001/v1/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NTcwLCJleHAiOjE2ODY5ODc0NzB9.wi4grpP3cU9XCFzBoKWGObOz-B1RRW28fwjuKGcokok
+
+### Get a new token
+GET  http://localhost:3001/v1/tokens
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+### Password reset endpoint
+POST http://localhost:3001/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email":  "anna@gmail.com"
+}
+
+### Update new password endpoint
+POST http://localhost:3001/v1/user/reset-password
+Content-Type: application/json
+
+{
+    "email":  "anna@gmail.com",
+    "pin": 002779,
+    "newPassword": "password1"
+}
+
+### User logout
+DELETE  http://localhost:3001/v1/user/logout
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+###Ticket apis
+
+### Open new ticket
+POST http://localhost:3001/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+{
+ "subject": "Form Issue",
+  "sender": "Vijay",
+  "message": "1 Contact form not working. please fix it as soon as possible" 
+}
+
+###Get all the tickets
+GET http://localhost:3001/v1/ticket
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+### Get single ticket
+GET http://localhost:3001/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+### Reply message to the ticket
+PUT http://localhost:3001/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+{ 
+    "message": "this is the 2we22 reply", 
+    "sender": "vijay" 
+}
+
+### Close the ticket
+PATCH http://localhost:3001/v1/ticket/close-ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
+
+### Delete the ticket
+DELETE  http://localhost:3001/v1/ticket/5fcd969896b6cb084ceafd19
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFubmFAZ21haWwuY29tIiwiaWF0IjoxNjg2OTg2NjU2LCJleHAiOjE2ODY5ODc1NTZ9.win7rh9DRvHGmVHFjFg9bRZFLajZAYDo7BiXWDp9mUA
